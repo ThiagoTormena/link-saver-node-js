@@ -3,7 +3,7 @@ const input = document.querySelector("input")
 const form = document.querySelector('form')
 
 function addElement({name, url}) {
-    const li = document.createElement('li')
+    const li = document.createElement('li') 
     const a = document.createElement("a")
     const trash = document.createElement("span")
 
