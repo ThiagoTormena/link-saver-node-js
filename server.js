@@ -1,17 +1,18 @@
-const http = require('http');
-const fs = require ('fs')
-const path = require('path') 
+const http = require('http')
+const fs = require('fs')
+const path = require('path')
+
 
 http.createServer((req, res) => {
 
     const file = req.url === '/' ? 'index.html' : req.url
     const filePath = path.join(__dirname, 'public', file)
-    const extName =path.extname(filePath)
+    const extname = path.extname(filePath)
 
     const allowedFileTypes = ['.html', '.css', '.js']
-    const allowed = allowedFileTypes.find(item => item == extName)
+    const allowed = allowedFileTypes.find(item => item == extname)
 
-    if(!allowed) return 
+    if(!allowed) return
 
     fs.readFile(
         filePath,
@@ -21,8 +22,4 @@ http.createServer((req, res) => {
             res.end(content)
         }
     )
-
-
-        
-    
-}).listen(5000, () => console.log("Server is running"));
+}).listen(5000, () => console.log('Server is running'))
